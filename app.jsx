@@ -3,7 +3,7 @@ const { useState, useEffect, useRef } = React;
 
 /* ---------- brand CTA button + rainbow section-seam rule ---------- */
 function Button({ variant, size = 'md', type = 'button', style, rightIcon, children, ...props }) {
-  const h = size === 'sm' ? 40 : size === 'lg' ? 54 : 46;
+  const h = size === 'sm' ? 44 : size === 'lg' ? 54 : 46;
   const pad = size === 'sm' ? '0 20px' : size === 'lg' ? '0 30px' : '0 24px';
   const fontSize = size === 'sm' ? 14 : size === 'lg' ? 16 : 15;
   return (
@@ -139,7 +139,7 @@ function WhatDarte() {
         </h2>
         <p className="reveal" style={{ font: '500 clamp(19px,2.4vw,28px)/1.45 var(--font-body)', color: '#26332b', maxWidth: 820, margin: '20px auto 0', textWrap: 'balance' }}>
           Darte simplifies booking, dining, attractions, reservations, and transportation into
-          <span style={{ color: '#0c8f00', fontWeight: 700 }}> one intelligent planning experience.</span>
+          <span style={{ color: '#0c8f00', fontWeight: 700 }}> one seamless planning experience.</span>
         </p>
 
         {/* one photo per headline category — real people living each one */}
@@ -432,7 +432,7 @@ function HowItWorks() {
                   It doesn’t just recommend. It books it.
                 </div>
                 <div style={{ font: '500 14px/1.5 var(--font-body)', color: 'var(--text-on-brand)', marginTop: 4 }}>
-                  A general AI chatbot stops at a suggestion. Darte completes the booking — table, tickets, ride — done, not just described.
+                  A general AI chatbot stops at a suggestion. Darte completes the booking — table, tickets, ride — done, not just recommended.
                 </div>
               </div>
             </div>
@@ -471,7 +471,7 @@ function Footer() {
           <img src="assets/darte-app-icon.webp" alt="" style={{ position: 'relative', zIndex: 1, display: 'block', width: 76, height: 76, borderRadius: 20, border: '2px solid var(--brand)' }} />
         </div>
         <h2 className="display reveal" style={{ fontSize: 'clamp(30px,5vw,60px)', color: 'var(--text-strong)', lineHeight: 0.98, margin: '0 auto 10px', maxWidth: 720 }}>
-          One app. Fast plans. <span style={{ color: 'var(--brand)' }}>Be first in line.</span>
+          One app. Fast plans.<br /><span style={{ color: 'var(--brand)' }}>Be first in line.</span>
         </h2>
         <p className="reveal" style={{ font: 'var(--text-lg)', color: 'var(--text-muted)', margin: '0 auto 28px', maxWidth: 460 }}>
           Join the wait list — be the first to experience Darte.
