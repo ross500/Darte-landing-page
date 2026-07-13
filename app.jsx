@@ -57,7 +57,7 @@ function Nav() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <a href="#waitlist">
-            <Button variant="gradient" size="sm">Join the wait list</Button>
+            <Button variant="gradient" size="sm">Join the waitlist</Button>
           </a>
         </div>
       </div>
@@ -92,7 +92,7 @@ function Hero() {
         {/* single CTA */}
         <div id="waitlist" style={{ maxWidth: 540, margin: '40px auto 0', scrollMarginTop: 90 }}>
           <div className="reveal" style={{ font: '700 clamp(18px,2.4vw,23px)/1.25 var(--font-display)', fontStyle: 'italic', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>
-            Join the wait list — be the first to experience Darte
+            Join the waitlist — be the first to experience Darte
           </div>
           {sent ? (
             <div style={{ padding: '18px 20px', borderRadius: 14, background: 'var(--surface-1)', border: '1px solid var(--brand)', color: 'var(--text-strong)', font: '600 15px/1.4 var(--font-body)' }}>
@@ -111,13 +111,7 @@ function Hero() {
           )}
         </div>
       </div>
-      {/* human presence — people actually out living the DARTE night */}
-      <div className="wrap reveal" style={{ position: 'relative', zIndex: 2, marginTop: 'clamp(48px,7vw,88px)' }}>
-        <PhotoFrame src="assets/hero-band.webp" alt="Friends gathered for an outdoor dinner at night"
-          grade="#C24DFF" caption="Your night — already handled"
-          style={{ height: 'clamp(220px, 30vw, 380px)', borderRadius: 20 }} />
-      </div>
-      <div style={{ maxWidth: 1200, margin: '84px auto 0', padding: '0 32px' }}><RainbowRule /></div>
+      <div style={{ maxWidth: 1200, margin: 'clamp(48px,7vw,88px) auto 0', padding: '0 32px' }}><RainbowRule /></div>
     </header>
   );
 }
@@ -135,11 +129,11 @@ function WhatDarte() {
     <section className="sec-pad sec-light">
       <div className="wrap" style={{ textAlign: 'center' }}>
         <h2 className="display reveal" style={{ fontSize: 'clamp(40px,7vw,88px)', color: '#07130a', margin: '0 auto', lineHeight: 0.92, textWrap: 'balance' }}>
-          What Darte does
+          Why You'll Love DARTE
         </h2>
         <p className="reveal" style={{ font: '500 clamp(19px,2.4vw,28px)/1.45 var(--font-body)', color: '#26332b', maxWidth: 820, margin: '20px auto 0', textWrap: 'balance' }}>
           Darte simplifies booking, dining, attractions, reservations, and transportation into
-          <span style={{ color: '#0c8f00', fontWeight: 700 }}> one seamless planning experience.</span>
+          <span style={{ color: '#0c8f00', fontWeight: 700 }}> one intelligent planning experience.</span>
         </p>
 
         {/* one photo per headline category — real people living each one */}
@@ -219,7 +213,7 @@ function Problem() {
           </p>
         </div>
 
-        <h3 className="display reveal" style={{ textAlign: 'center', fontSize: 'clamp(30px,5vw,60px)', color: 'var(--brand)', lineHeight: 0.95, margin: 'clamp(56px,8vw,88px) auto 0', textWrap: 'balance' }}>
+        <h3 className="display reveal" style={{ textAlign: 'center', fontSize: 'clamp(48px,8.4vw,110px)', color: 'var(--brand)', lineHeight: 0.9, margin: 'clamp(56px,8vw,88px) auto 0', textWrap: 'balance', textShadow: '0 0 40px var(--darte-green-bright), 0 0 90px #15bf0088' }}>
           The Darte Solution
         </h3>
 
@@ -324,7 +318,7 @@ function SolutionChat() {
           {phase === 'reply' && (
             <div className="reply-in" style={{ alignSelf: 'flex-start', maxWidth: '92%', display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ padding: '11px 15px', borderRadius: '4px 16px 16px 16px', background: 'var(--surface-2)', border: '1px solid var(--border-subtle)', color: 'var(--text-body)', font: '400 14px/1.5 var(--font-body)' }}>
-                Say less. Here’s your night — dinner, then a show, ride timed in between.
+                Got it! Here’s your night — dinner, then a show, ride timed in between.
               </div>
               <ItinLine icon="utensils" color="var(--cat-dining)" title="Capa Terrace" sub="Rooftop dining · 7:30 PM · table held" />
               <ItinLine icon="car-front" color="var(--cat-transportation)" title="Ride booked" sub="UberX · picks you up 9:05 PM" />
@@ -356,9 +350,9 @@ function ItinLine({ icon, color, title, sub }) {
 
 function HowItWorks() {
   const steps = [
-    { n: '01', icon: 'message-square', title: 'Ask.', sub: 'Tell Darte what you’re in the mood for — in plain words.', color: 'var(--cat-attractions)', size: 'clamp(24px,3vw,32px)', mw: 440 },
-    { n: '02', icon: 'sparkles', title: 'DARTE Recommends.', sub: 'It reads your vibe and lines up a complete, timed plan.', color: 'var(--cat-reservations)', size: 'clamp(28px,3.8vw,42px)', mw: 560 },
-    { n: '03', icon: 'check-check', title: 'You Book!', sub: 'Dinner, tickets, and a ride — confirmed within one app.', color: 'var(--brand)', size: 'clamp(36px,5vw,58px)', mw: 680 },
+    { n: '01', icon: 'message-square', title: 'You Ask.', sub: 'Tell Darte what you’re in the mood for — in plain words.', color: 'var(--cat-attractions)', size: 'clamp(24px,3vw,32px)', mw: 440 },
+    { n: '02', icon: 'sparkles', title: 'Darte Recommends.', sub: 'It reads your vibe and lines up a complete, timed plan.', color: 'var(--cat-reservations)', size: 'clamp(28px,3.8vw,42px)', mw: 560 },
+    { n: '03', icon: 'check-check', title: 'Darte Books.', sub: 'Dinner, tickets, and a ride — confirmed within one app.', color: 'var(--brand)', size: 'clamp(36px,5vw,58px)', mw: 680 },
   ];
   const [notifIn, setNotifIn] = useState(false);
   const diffRef = useRef(null);
@@ -374,7 +368,7 @@ function HowItWorks() {
       <div className="wrap" style={{ textAlign: 'center' }}>
         <span className="eyebrow reveal" style={{ fontSize: 'clamp(18px,2.2vw,26px)', letterSpacing: '.14em' }}>How it works</span>
         <h2 className="display reveal" style={{ fontSize: 'clamp(46px,8vw,104px)', color: 'var(--text-strong)', margin: '14px auto 0', lineHeight: 0.94 }}>
-          Ask.<br />DARTE Recommends.<br />You Book!
+          You Ask.<br />Darte Recommends.<br />Darte Books.
         </h2>
         <p className="reveal" style={{ font: '600 var(--text-lg)', color: 'var(--text-strong)', maxWidth: 620, margin: '22px auto 0', textWrap: 'balance' }}>
           No tabs, no toggling. One conversation turns a vague idea into a night that’s proactively planned.
@@ -432,7 +426,7 @@ function HowItWorks() {
                   It doesn’t just recommend. It books it.
                 </div>
                 <div style={{ font: '500 14px/1.5 var(--font-body)', color: 'var(--text-on-brand)', marginTop: 4 }}>
-                  A general AI chatbot stops at a suggestion. Darte completes the booking — table, tickets, ride — done, not just recommended.
+                  A general AI chatbot stops at a suggestion. Darte completes the booking — table, tickets, ride — done, not just described.
                 </div>
               </div>
             </div>
@@ -471,13 +465,13 @@ function Footer() {
           <img src="assets/darte-app-icon.webp" alt="" style={{ position: 'relative', zIndex: 1, display: 'block', width: 76, height: 76, borderRadius: 20, border: '2px solid var(--brand)' }} />
         </div>
         <h2 className="display reveal" style={{ fontSize: 'clamp(30px,5vw,60px)', color: 'var(--text-strong)', lineHeight: 0.98, margin: '0 auto 10px', maxWidth: 720 }}>
-          One app. Fast plans.<br /><span style={{ color: 'var(--brand)' }}>Be first in line.</span>
+          One app. Fast plans. <span style={{ color: 'var(--brand)' }}>Be first in line.</span>
         </h2>
         <p className="reveal" style={{ font: 'var(--text-lg)', color: 'var(--text-muted)', margin: '0 auto 28px', maxWidth: 460 }}>
-          Join the wait list — be the first to experience Darte.
+          Join the waitlist — be the first to experience Darte.
         </p>
         <a href="#waitlist" className="reveal" style={{ display: 'inline-block' }}>
-          <Button variant="gradient" size="lg" rightIcon={<Icon name="arrow-right" size={20} color="var(--text-on-brand)" />}>Join the wait list</Button>
+          <Button variant="gradient" size="lg" rightIcon={<Icon name="arrow-right" size={20} color="var(--text-on-brand)" />}>Join the waitlist</Button>
         </a>
         <div style={{ marginTop: 60, display: 'flex', justifyContent: 'center' }}>
           <img src="assets/darte-logo-secondary.webp" alt="DARTE" style={{ height: 52, opacity: 0.92 }} />
