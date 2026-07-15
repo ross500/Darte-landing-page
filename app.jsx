@@ -1,7 +1,27 @@
 /* global React, ReactDOM */
 const { useState, useEffect, useRef } = React;
-const DS = window.DARTEDesignSystem_3666aa || {};
-const { Button, RainbowRule } = DS;
+
+/* ---------- brand CTA button + rainbow section-seam rule ---------- */
+function Button({ variant, size = 'md', type = 'button', style, rightIcon, children, ...props }) {
+  const h = size === 'sm' ? 44 : size === 'lg' ? 54 : 46;
+  const pad = size === 'sm' ? '0 20px' : size === 'lg' ? '0 30px' : '0 24px';
+  const fontSize = size === 'sm' ? 14 : size === 'lg' ? 16 : 15;
+  return (
+    <button type={type} style={{
+      height: h, padding: pad, borderRadius: 'var(--radius-md)', border: 'none', cursor: 'pointer',
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+      background: 'var(--gradient-brand)', color: 'var(--text-on-brand)',
+      font: `800 ${fontSize}px/1 var(--font-display)`, fontStyle: 'italic',
+      letterSpacing: '.03em', textTransform: 'uppercase', boxShadow: 'var(--shadow-glow-green)',
+      ...style,
+    }} {...props}>
+      {children}{rightIcon}
+    </button>
+  );
+}
+function RainbowRule() {
+  return <div style={{ height: 2, borderRadius: 999, background: 'var(--gradient-rainbow)' }} />;
+}
 
 /* ---------- lifestyle photo with brand grade ---------- */
 function PhotoFrame({ src, alt, grade, caption, style, className }) {
@@ -30,14 +50,14 @@ function Nav() {
   return (
     <nav className="nav">
       <div className="wrap nav-inner">
-        <a href="#top"><img src="assets/darte-logo-secondary.png" alt="DARTE" /></a>
+        <a href="#top"><img src="assets/darte-logo-secondary.webp" alt="DARTE" /></a>
         <div className="soon-badge">
           <span className="soon-dot" />
           Coming Soon
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <a href="#waitlist">
-            <Button variant="gradient" size="sm">Join the wait list</Button>
+            <Button variant="gradient" size="sm">Join the waitlist</Button>
           </a>
         </div>
       </div>
@@ -60,7 +80,7 @@ function Hero() {
           Your AI concierge for <span style={{ color: 'var(--brand)' }}>real-world experiences.</span>
         </h1>
         {/* lockup on solid dark ground — static, no glow/motion behind it */}
-        <img className="hero-lockup reveal in" src="assets/darte-lockup-primary.png" alt="DARTE — One App. Fast Plans."
+        <img className="hero-lockup reveal in" src="assets/darte-lockup-primary.webp" alt="DARTE — One App. Fast Plans."
           style={{ width: 'min(680px, 82vw)', margin: '10px auto 0' }} />
 
         {/* phones */}
@@ -71,8 +91,8 @@ function Hero() {
 
         {/* single CTA */}
         <div id="waitlist" style={{ maxWidth: 540, margin: '40px auto 0', scrollMarginTop: 90 }}>
-          <div className="reveal" style={{ font: '600 13px/1 var(--font-display)', fontStyle: 'italic', letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 14 }}>
-            Join the wait list — be the first to experience DARTE
+          <div className="reveal" style={{ font: '700 clamp(18px,2.4vw,23px)/1.25 var(--font-display)', fontStyle: 'italic', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>
+            Join the waitlist — be the first to experience DARTE
           </div>
           {sent ? (
             <div style={{ padding: '18px 20px', borderRadius: 14, background: 'var(--surface-1)', border: '1px solid var(--brand)', color: 'var(--text-strong)', font: '600 15px/1.4 var(--font-body)' }}>
@@ -91,13 +111,7 @@ function Hero() {
           )}
         </div>
       </div>
-      {/* human presence — people actually out living the DARTE night */}
-      <div className="wrap reveal" style={{ position: 'relative', zIndex: 2, marginTop: 'clamp(48px,7vw,88px)' }}>
-        <PhotoFrame src="assets/hero-band.webp" alt="Friends gathered for an outdoor dinner at night"
-          grade="#C24DFF" caption="Your night — already handled"
-          style={{ height: 'clamp(220px, 30vw, 380px)', borderRadius: 20 }} />
-      </div>
-      <div style={{ maxWidth: 1200, margin: '84px auto 0', padding: '0 32px' }}><RainbowRule /></div>
+      <div style={{ maxWidth: 1200, margin: 'clamp(48px,7vw,88px) auto 0', padding: '0 32px' }}><RainbowRule /></div>
     </header>
   );
 }
@@ -105,17 +119,17 @@ function Hero() {
 /* ---------- WHAT DARTE DOES + acronym ---------- */
 function WhatDarte() {
   const rows = [
-    { L: 'D', word: 'ining', color: 'var(--cat-dining)', icon: 'utensils', sub: 'Restaurants & food' },
-    { L: 'A', word: 'ttractions', color: 'var(--cat-attractions)', icon: 'ferris-wheel', sub: 'Spots & activities' },
-    { L: 'R', word: 'eservations', color: 'var(--cat-reservations)', icon: 'calendar-check', sub: 'Tables & bookings' },
-    { L: 'T', word: 'ransportation', color: 'var(--cat-transportation)', icon: 'car-front', sub: 'Rides, taxi, rentals' },
-    { L: 'E', word: 'ntertainment', color: 'var(--cat-entertainment)', icon: 'party-popper', sub: 'Events, art, culture' },
+    { L: 'D', word: 'ining', color: 'var(--cat-dining)', icon: 'utensils', sub: 'Restaurants & Bars' },
+    { L: 'A', word: 'ttractions', color: 'var(--cat-attractions)', icon: 'ferris-wheel', sub: 'Theme & Water Parks, Museums & Beaches' },
+    { L: 'R', word: 'eservations', color: 'var(--cat-reservations)', icon: 'calendar-check', sub: 'Clubs, Shows & Events' },
+    { L: 'T', word: 'ransportation', color: 'var(--cat-transportation)', icon: 'car-front', sub: 'Taxi, Transfers, & Rentals' },
+    { L: 'E', word: 'ntertainment', color: 'var(--cat-entertainment)', icon: 'party-popper', sub: 'Concerts, Professional Sports & Museums' },
   ];
   return (
     <section className="sec-pad sec-light">
       <div className="wrap" style={{ textAlign: 'center' }}>
         <h2 className="display reveal" style={{ fontSize: 'clamp(40px,7vw,88px)', color: '#07130a', margin: '0 auto', lineHeight: 0.92, textWrap: 'balance' }}>
-          What DARTE does
+          Why You'll Love DARTE
         </h2>
         <p className="reveal" style={{ font: '500 clamp(19px,2.4vw,28px)/1.45 var(--font-body)', color: '#26332b', maxWidth: 820, margin: '20px auto 0', textWrap: 'balance' }}>
           DARTE simplifies booking, dining, attractions, reservations, and transportation into
@@ -137,11 +151,11 @@ function WhatDarte() {
               borderLeft: `3px solid ${r.color}`, textAlign: 'left',
               transitionDelay: `${i * 60}ms`,
             }}>
-              <span className="display" style={{ lineHeight: 0.9, color: 'var(--text-strong)', flex: 1 }}>
+              <span className="display" style={{ lineHeight: 0.9, color: 'var(--text-strong)', flex: '1 1 auto', minWidth: 0 }}>
                 <span className="acr-initial" style={{ color: r.color, fontSize: 'clamp(30px,5vw,52px)' }}>{r.L}</span><span style={{ fontSize: 'clamp(22px,3.4vw,38px)' }}>{r.word}</span>
               </span>
-              <span style={{ display: 'none', font: '400 14px/1 var(--font-body)', color: 'var(--text-muted)' }} className="acr-sub">{r.sub}</span>
-              <Icon name={r.icon} size={26} color={r.color} />
+              <span style={{ display: 'none', font: '400 13px/1.35 var(--font-body)', color: 'var(--text-muted)', textAlign: 'right', maxWidth: 220, flexShrink: 1 }} className="acr-sub">{r.sub}</span>
+              <Icon name={r.icon} size={26} color={r.color} style={{ flexShrink: 0 }} />
             </div>
           ))}
         </div>
@@ -199,7 +213,13 @@ function Problem() {
           </p>
         </div>
 
-        <h3 className="display reveal" style={{ textAlign: 'center', fontSize: 'clamp(30px,5vw,60px)', color: 'var(--brand)', lineHeight: 0.95, margin: 'clamp(56px,8vw,88px) auto 0', textWrap: 'balance' }}>
+        <div className="reveal" style={{ margin: 'clamp(48px,7vw,80px) auto 0' }}>
+          <img src="assets/problem-illustration.webp"
+            alt="A person overwhelmed juggling Maps, OpenTable, Ticketmaster, and Uber apps to plan one night out, captioned: too many apps, too many steps, too much time."
+            style={{ width: '100%', height: 'auto', display: 'block' }} />
+        </div>
+
+        <h3 className="display reveal" style={{ textAlign: 'center', fontSize: 'clamp(48px,8.4vw,110px)', color: 'var(--brand)', lineHeight: 0.9, margin: 'clamp(56px,8vw,88px) auto 0', textWrap: 'balance', textShadow: '0 0 40px var(--darte-green-bright), 0 0 90px #15bf0088' }}>
           The DARTE Solution
         </h3>
 
@@ -225,7 +245,7 @@ function Problem() {
           {/* center DARTE mark */}
           <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: '15%', aspectRatio: '1', borderRadius: 26,
             boxShadow: '0 0 50px -6px #15bf0088, 0 0 0 1px #2be01555' }}>
-            <img src="assets/darte-app-icon.jpg" alt="DARTE" style={{ width: '100%', height: '100%', borderRadius: 26 }} />
+            <img src="assets/darte-app-icon.webp" alt="DARTE" style={{ width: '100%', height: '100%', borderRadius: 26 }} />
           </div>
         </div>
 
@@ -233,7 +253,7 @@ function Problem() {
         <div className="converge-mobile reveal" style={{ display: 'none', flexDirection: 'column', alignItems: 'center', gap: 16, margin: '48px auto 0' }}>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}><AppTile {...apps[0]} /><AppTile {...apps[2]} /></div>
           <Icon name="arrow-down" size={28} color="#15BF00" />
-          <img src="assets/darte-app-icon.jpg" alt="DARTE" style={{ width: 96, height: 96, borderRadius: 22, boxShadow: '0 0 44px -8px #15bf0088' }} />
+          <img src="assets/darte-app-icon.webp" alt="DARTE" style={{ width: 96, height: 96, borderRadius: 22, boxShadow: '0 0 44px -8px #15bf0088' }} />
           <Icon name="arrow-up" size={28} color="#FF7A1A" />
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}><AppTile {...apps[1]} /><AppTile {...apps[3]} /></div>
         </div>
@@ -280,7 +300,7 @@ function SolutionChat() {
       <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column' }}>
         <StatusBar />
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '4px 18px 12px', borderBottom: '1px solid var(--border-subtle)' }}>
-          <img src="assets/darte-app-icon.jpg" alt="" style={{ width: 34, height: 34, borderRadius: '50%', border: '2px solid var(--brand)' }} />
+          <img src="assets/darte-app-icon.webp" alt="" style={{ width: 34, height: 34, borderRadius: '50%', border: '2px solid var(--brand)' }} />
           <div>
             <div className="display" style={{ fontSize: 16, color: 'var(--brand)', lineHeight: 1 }}>DARTE</div>
             <div style={{ font: '500 10px/1 var(--font-body)', color: 'var(--text-muted)', marginTop: 3 }}>AI Concierge · Online</div>
@@ -304,7 +324,7 @@ function SolutionChat() {
           {phase === 'reply' && (
             <div className="reply-in" style={{ alignSelf: 'flex-start', maxWidth: '92%', display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ padding: '11px 15px', borderRadius: '4px 16px 16px 16px', background: 'var(--surface-2)', border: '1px solid var(--border-subtle)', color: 'var(--text-body)', font: '400 14px/1.5 var(--font-body)' }}>
-                Say less. Here’s your night — dinner, then a show, ride timed in between.
+                Got it! Here’s your night — dinner, then a show, ride timed in between.
               </div>
               <ItinLine icon="utensils" color="var(--cat-dining)" title="Christinis Ristorante" sub="Rooftop dining · 7:30 PM · table held" />
               <ItinLine icon="car-front" color="var(--cat-transportation)" title="Ride booked" sub="UberX · picks you up 9:05 PM" />
@@ -334,20 +354,29 @@ function ItinLine({ icon, color, title, sub }) {
   );
 }
 
-function Solution() {
+function HowItWorks() {
   const steps = [
-    { n: '01', icon: 'message-square', title: 'Ask', sub: 'Tell DARTE what you’re in the mood for — in plain words.', color: 'var(--cat-attractions)', size: 'clamp(24px,3vw,32px)', mw: 440 },
-    { n: '02', icon: 'sparkles', title: 'DARTE recommends', sub: 'It reads your vibe and lines up a complete, timed plan.', color: 'var(--cat-reservations)', size: 'clamp(30px,4.2vw,46px)', mw: 560 },
-    { n: '03', icon: 'check-check', title: 'You book', sub: 'Dinner, tickets, and a ride — confirmed within one app.', color: 'var(--brand)', size: 'clamp(38px,5.4vw,62px)', mw: 680 },
+    { n: '01', icon: 'message-square', title: 'You Ask.', sub: 'Tell DARTE what you’re in the mood for — in plain words.', color: 'var(--cat-attractions)', size: 'clamp(24px,3vw,32px)', mw: 440 },
+    { n: '02', icon: 'sparkles', title: 'DARTE Recommends.', sub: 'It reads your vibe and lines up a complete, timed plan.', color: 'var(--cat-reservations)', size: 'clamp(28px,3.8vw,42px)', mw: 560 },
+    { n: '03', icon: 'check-check', title: 'DARTE Books.', sub: 'Dinner, tickets, and a ride — confirmed within one app.', color: 'var(--brand)', size: 'clamp(36px,5vw,58px)', mw: 680 },
   ];
+  const [notifIn, setNotifIn] = useState(false);
+  const diffRef = useRef(null);
+  useEffect(() => {
+    const io = new IntersectionObserver((e) => {
+      if (e[0].isIntersecting) { setNotifIn(false); setTimeout(() => setNotifIn(true), 400); }
+    }, { threshold: 0.4 });
+    if (diffRef.current) io.observe(diffRef.current);
+    return () => io.disconnect();
+  }, []);
   return (
-    <section className="sec-pad">
+    <section className="sec-pad" id="how-it-works">
       <div className="wrap" style={{ textAlign: 'center' }}>
         <span className="eyebrow reveal" style={{ fontSize: 'clamp(30px,5vw,60px)', letterSpacing: '.1em' }}>How it works</span>
-        <h2 className="display reveal" style={{ fontSize: 'clamp(46px,8vw,104px)', color: 'var(--text-strong)', margin: '14px auto 0', lineHeight: 0.9, textWrap: 'balance' }}>
-          Ask. DARTE recommends. You book.
+        <h2 className="display reveal" style={{ fontSize: 'clamp(46px,8vw,104px)', color: 'var(--text-strong)', margin: '14px auto 0', lineHeight: 0.94 }}>
+          You Ask.<br />DARTE Recommends.<br />DARTE Books.
         </h2>
-        <p className="reveal" style={{ font: 'var(--text-lg)', color: 'var(--text-muted)', maxWidth: 620, margin: '22px auto 0', textWrap: 'balance' }}>
+        <p className="reveal" style={{ font: '600 var(--text-lg)', color: 'var(--text-strong)', maxWidth: 620, margin: '22px auto 0', textWrap: 'balance' }}>
           No tabs, no toggling. One conversation turns a vague idea into a night that’s proactively planned.
         </p>
 
@@ -371,59 +400,58 @@ function Solution() {
           ))}
         </div>
       </div>
-    </section>
-  );
-}
 
-/* ---------- PROACTIVE HIGHLIGHT ---------- */
-function Proactive() {
-  const [notifIn, setNotifIn] = useState(false);
-  const ref = useRef(null);
-  useEffect(() => {
-    const io = new IntersectionObserver((e) => {
-      if (e[0].isIntersecting) { setNotifIn(false); setTimeout(() => setNotifIn(true), 400); }
-    }, { threshold: 0.4 });
-    if (ref.current) io.observe(ref.current);
-    return () => io.disconnect();
-  }, []);
-  return (
-    <section className="sec-pad" ref={ref} style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(180deg, var(--bg-sunken) 0%, var(--bg-sunken) 72%, var(--bg-base) 100%)' }}>
-      <div className="glow-green" style={{ width: 520, height: 520, top: '10%', left: -160, background: 'var(--darte-green)' }} />
-      <div className="wrap" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 'clamp(32px,7vw,100px)', alignItems: 'center' }} id="pro-grid">
-        <div className="reveal" style={{ justifySelf: 'center' }}>
-          <PhoneFrame glow="green"><LockScreen notifIn={notifIn} /></PhoneFrame>
-        </div>
-        <div>
-          <span className="eyebrow reveal" style={{ color: 'var(--accent)', fontSize: 'clamp(30px,5vw,60px)', letterSpacing: '.1em' }}>The difference</span>
-          <h2 className="display reveal" style={{ fontSize: 'clamp(32px,4.8vw,60px)', color: 'var(--text-strong)', margin: '16px 0 20px', lineHeight: 0.98, textWrap: 'balance' }}>
-            DARTE nudges you <span style={{ color: 'var(--brand)' }}>before you ask.</span>
-          </h2>
-          <p className="reveal" style={{ font: 'var(--text-xl)', color: 'var(--text-body)', maxWidth: 500, marginBottom: 22 }}>
-            Most apps wait for a search. DARTE is proactive — it knows your taste, reads the moment, and surfaces the plan before it crosses your mind.
-          </p>
-          <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 500 }}>
-            {[
-              { ic: 'radar', t: 'Reads the moment', d: 'Time, location, and your vibe — DARTE connects them in the background.' },
-              { ic: 'zap', t: 'Suggests, not searches', d: 'The right place, table, and ride arrive as one tappable plan.' },
-            ].map(x => (
-              <div key={x.t} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                <span style={{ width: 40, height: 40, borderRadius: 10, background: 'var(--surface-1)', border: '1px solid var(--border-default)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Icon name={x.ic} size={20} color="var(--brand)" />
-                </span>
-                <div>
-                  <div style={{ font: '700 16px/1.2 var(--font-body)', color: 'var(--text-strong)' }}>{x.t}</div>
-                  <div style={{ font: '400 14px/1.5 var(--font-body)', color: 'var(--text-muted)', marginTop: 2 }}>{x.d}</div>
+      {/* ---- THE DARTE DIFFERENCE — same section, visually delineated sub-block ---- */}
+      <div className="wrap" style={{ marginTop: 'clamp(72px,10vw,120px)' }}>
+        <RainbowRule />
+      </div>
+      <div ref={diffRef} className="wrap" style={{ position: 'relative', marginTop: 'clamp(56px,8vw,88px)', padding: 'clamp(32px,5vw,56px) clamp(24px,4vw,48px)',
+        borderRadius: 24, background: 'color-mix(in srgb, var(--darte-green) 7%, var(--surface-1))',
+        border: '1px solid color-mix(in srgb, var(--darte-green) 30%, var(--border-subtle))', overflow: 'hidden' }}>
+        <div className="glow-green" style={{ width: 460, height: 460, top: '-20%', left: -140, background: 'var(--darte-green)', opacity: 0.5 }} />
+        <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 'clamp(32px,7vw,100px)', alignItems: 'center', position: 'relative', zIndex: 1 }} id="pro-grid">
+          <div className="reveal" style={{ justifySelf: 'center' }}>
+            <PhoneFrame glow="green"><LockScreen notifIn={notifIn} /></PhoneFrame>
+          </div>
+          <div style={{ textAlign: 'left' }}>
+            <span className="eyebrow reveal" style={{ color: 'var(--accent)', fontSize: 'clamp(30px,5vw,60px)', letterSpacing: '.1em' }}>The DARTE difference</span>
+            <h3 className="display reveal" style={{ fontSize: 'clamp(32px,4.8vw,60px)', color: 'var(--text-strong)', margin: '16px 0 20px', lineHeight: 0.98, textWrap: 'balance' }}>
+              DARTE suggests <span style={{ color: 'var(--brand)' }}>before you ask.</span>
+            </h3>
+            <p className="reveal" style={{ font: 'var(--text-xl)', color: 'var(--text-body)', maxWidth: 500, marginBottom: 22 }}>
+              Most apps wait for a search. DARTE is proactive — it knows your taste, reads the moment, and surfaces the plan before it crosses your mind.
+            </p>
+            {/* the key differentiator, called out with real visual weight */}
+            <div className="reveal" style={{ display: 'flex', gap: 16, alignItems: 'flex-start', maxWidth: 520, margin: '0 0 22px',
+              padding: '18px 20px', borderRadius: 16, background: 'var(--gradient-brand)', boxShadow: 'var(--shadow-glow-green)' }}>
+              <span style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(0,0,0,.18)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <Icon name="check-check" size={24} color="var(--text-on-brand)" />
+              </span>
+              <div>
+                <div style={{ font: '800 18px/1.2 var(--font-display)', fontStyle: 'italic', color: 'var(--text-on-brand)', textTransform: 'uppercase', letterSpacing: '.01em' }}>
+                  It doesn’t just recommend. It books it.
+                </div>
+                <div style={{ font: '500 14px/1.5 var(--font-body)', color: 'var(--text-on-brand)', marginTop: 4 }}>
+                  A general AI chatbot stops at a suggestion. DARTE completes the booking — table, tickets, ride — done, not just recommended.
                 </div>
               </div>
-            ))}
-          </div>
-          <div className="reveal" style={{
-            marginTop: 22, maxWidth: 500, padding: '18px 24px', borderRadius: 16,
-            background: 'var(--gradient-brand)', boxShadow: 'var(--shadow-glow-green)',
-          }}>
-            <span className="display" style={{ fontSize: 'clamp(18px,2.2vw,24px)', lineHeight: 1.3, color: 'var(--text-on-brand)' }}>
-              It doesn’t just recommend. <span style={{ fontWeight: 900 }}>It books it.</span>
-            </span>
+            </div>
+            <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 500 }}>
+              {[
+                { ic: 'radar', t: 'Reads the moment', d: 'Time, location, and your vibe — DARTE connects them in the background.' },
+                { ic: 'zap', t: 'Suggests, not searches', d: 'The right place, table, and ride arrive as one tappable plan.' },
+              ].map(x => (
+                <div key={x.t} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                  <span style={{ width: 40, height: 40, borderRadius: 10, background: 'var(--surface-1)', border: '1px solid var(--border-default)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Icon name={x.ic} size={20} color="var(--brand)" />
+                  </span>
+                  <div>
+                    <div style={{ font: '700 16px/1.2 var(--font-body)', color: 'var(--text-strong)' }}>{x.t}</div>
+                    <div style={{ font: '400 14px/1.5 var(--font-body)', color: 'var(--text-muted)', marginTop: 2 }}>{x.d}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -440,19 +468,19 @@ function Footer() {
         <div className="glow-green" style={{ width: 820, height: 820, top: -380, left: '50%', transform: 'translateX(-50%)', background: 'var(--darte-green)', opacity: 0.2, filter: 'blur(160px)' }} />
         <div className="reveal" style={{ position: 'relative', width: 76, height: 76, margin: '0 auto 22px' }}>
           <div aria-hidden="true" style={{ position: 'absolute', inset: -34, borderRadius: '50%', background: 'radial-gradient(circle, rgba(21,191,0,0.45) 0%, rgba(21,191,0,0) 70%)', filter: 'blur(22px)', zIndex: 0 }} />
-          <img src="assets/darte-app-icon.jpg" alt="" style={{ position: 'relative', zIndex: 1, display: 'block', width: 76, height: 76, borderRadius: 20, border: '2px solid var(--brand)' }} />
+          <img src="assets/darte-app-icon.webp" alt="" style={{ position: 'relative', zIndex: 1, display: 'block', width: 76, height: 76, borderRadius: 20, border: '2px solid var(--brand)' }} />
         </div>
         <h2 className="display reveal" style={{ fontSize: 'clamp(30px,5vw,60px)', color: 'var(--text-strong)', lineHeight: 0.98, margin: '0 auto 10px', maxWidth: 720 }}>
           One app. Fast plans.<br /><span style={{ color: 'var(--brand)' }}>Be first in line!</span>
         </h2>
         <p className="reveal" style={{ font: 'var(--text-lg)', color: 'var(--text-muted)', margin: '0 auto 28px', maxWidth: 460 }}>
-          Join the wait list — be the first to experience DARTE.
+          Join the waitlist — be the first to experience DARTE.
         </p>
         <a href="#waitlist" className="reveal" style={{ display: 'inline-block' }}>
-          <Button variant="gradient" size="lg" rightIcon={<Icon name="arrow-right" size={20} color="var(--text-on-brand)" />}>Join the wait list</Button>
+          <Button variant="gradient" size="lg" rightIcon={<Icon name="arrow-right" size={20} color="var(--text-on-brand)" />}>Join the waitlist</Button>
         </a>
         <div style={{ marginTop: 60, display: 'flex', justifyContent: 'center' }}>
-          <img src="assets/darte-logo-secondary.png" alt="DARTE" style={{ height: 52, opacity: 0.92 }} />
+          <img src="assets/darte-logo-secondary.webp" alt="DARTE" style={{ height: 52, opacity: 0.92 }} />
         </div>
         <div style={{ font: '400 13px/1.5 var(--font-body)', color: 'var(--text-faint)', marginTop: 18 }}>© 2026 DARTE · One App. Fast Plans.</div>
       </div>
@@ -470,8 +498,7 @@ function App() {
       <Hero />
       <WhatDarte />
       <Problem />
-      <Solution />
-      <Proactive />
+      <HowItWorks />
       <Footer />
     </>
   );

@@ -107,7 +107,7 @@ function ChatHomeScreen() {
       <div style={{ padding: '6px 18px 0', flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0 }}>
         {/* header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
-          <img src="assets/darte-app-icon.jpg" alt="" style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid var(--brand)' }} />
+          <img src="assets/darte-app-icon.webp" alt="" style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid var(--brand)' }} />
           <div>
             <div className="display" style={{ fontSize: 20, color: 'var(--brand)', lineHeight: 1 }}>DARTE</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 3, font: '500 11px/1 var(--font-body)', color: 'var(--text-muted)' }}>
@@ -122,7 +122,7 @@ function ChatHomeScreen() {
           background: 'var(--surface-1)', border: '1px solid var(--border-subtle)',
           boxShadow: 'inset 0 0 0 1px #00f5ff10', marginBottom: 16,
         }}>
-          <img src="assets/darte-app-icon.jpg" alt="" style={{ width: 52, height: 52, borderRadius: 12, alignSelf: 'flex-start' }} />
+          <img src="assets/darte-app-icon.webp" alt="" style={{ width: 52, height: 52, borderRadius: 12, alignSelf: 'flex-start' }} />
           <div>
             <div style={{ font: '700 15px/1.2 var(--font-body)', color: 'var(--text-strong)', marginBottom: 4 }}>Hi, I'm DARTE.</div>
             <div style={{ font: '400 12px/1.5 var(--font-body)', color: 'var(--text-muted)' }}>Your AI concierge near you. Ask me anything — dining, rides, events, and more.</div>
@@ -284,7 +284,7 @@ function TabBar({ active }) {
           if (!t.icon) {
             return (
               <div key={t.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, marginTop: -18 }}>
-                <img src="assets/darte-app-icon.jpg" alt="" style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid var(--brand)', boxShadow: 'var(--shadow-glow-green)' }} />
+                <img src="assets/darte-app-icon.webp" alt="" style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid var(--brand)', boxShadow: 'var(--shadow-glow-green)' }} />
                 <span style={{ font: '600 9px/1 var(--font-body)', color: 'var(--brand)' }}>{t.label}</span>
               </div>
             );
@@ -327,7 +327,7 @@ function LockScreen({ notifIn = true }) {
           opacity: notifIn ? 1 : 0,
           transition: 'all .55s var(--ease-spring)',
         }}>
-          <img src="assets/darte-app-icon.jpg" alt="" style={{ width: 40, height: 40, borderRadius: 10, flexShrink: 0 }} />
+          <img src="assets/darte-app-icon.webp" alt="" style={{ width: 40, height: 40, borderRadius: 10, flexShrink: 0 }} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <span style={{ font: '700 12px/1 var(--font-display)', fontStyle: 'italic', letterSpacing: '.06em', color: '#fff' }}>DARTE</span>
