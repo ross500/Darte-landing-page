@@ -376,7 +376,7 @@ function HowItWorks() {
         <h2 className="display reveal" style={{ fontSize: 'clamp(46px,8vw,104px)', color: 'var(--text-strong)', margin: '14px auto 0', lineHeight: 0.94 }}>
           You Ask.<br />DARTE Recommends.<br />DARTE Books.
         </h2>
-        <p className="reveal" style={{ font: '600 var(--text-lg)', color: 'var(--text-strong)', maxWidth: 620, margin: '22px auto 0', textWrap: 'balance' }}>
+        <p className="reveal" style={{ font: '600 clamp(20px,2.6vw,30px)/1.5 var(--font-body)', color: 'var(--text-strong)', maxWidth: 680, margin: '22px auto 0', textWrap: 'balance' }}>
           No tabs, no toggling. One conversation turns a vague idea into a night that’s proactively planned.
         </p>
 
