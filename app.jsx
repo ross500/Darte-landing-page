@@ -483,6 +483,9 @@ function Footer() {
           <img src="assets/darte-logo-secondary.webp" alt="DARTE" style={{ height: 52, opacity: 0.92 }} />
         </div>
         <div style={{ font: '400 13px/1.5 var(--font-body)', color: 'var(--text-faint)', marginTop: 18 }}>© 2026 DARTE · One App. Fast Plans.</div>
+        <p style={{ font: '400 12px/1.6 var(--font-body)', color: 'var(--text-faint)', margin: '16px auto 0', maxWidth: 720 }}>
+          DARTE is an upcoming AI concierge platform and this site is for informational and promotional purposes only. Features, integrations, and availability are subject to change without notice. AI-assisted recommendations may be inaccurate or incomplete; please verify all details independently. DARTE is not responsible for third-party restaurants, hotels, venues, transportation, or other providers. Use of this site is subject to our Terms of Service and Privacy Policy.
+        </p>
       </div>
     </footer>
   );
