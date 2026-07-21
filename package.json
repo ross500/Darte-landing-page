@@ -1,0 +1,28 @@
+{
+  "name": "darte-landing-page",
+  "version": "1.0.0",
+  "description": "DARTE - Your AI concierge for real-world experiences",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ross500/Darte-landing-page.git"
+  },
+  "keywords": [
+    "darte",
+    "landing-page",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ross500/Darte-landing-page/issues"
+  },
+  "homepage": "https://github.com/ross500/Darte-landing-page#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
